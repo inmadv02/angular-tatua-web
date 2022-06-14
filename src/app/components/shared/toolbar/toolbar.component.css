@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+mat-toolbar {
+    background-color: black;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: center;
+    color: white;
+    padding: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+span {
+    width: 10%;
+    font-family: 400;
+}
+
+.title {
+    font-weight:900;
+    text-align: center;
+    font-size: 22;
+    width: 30%;
+    letter-spacing: 0.15em;
+    padding-top: 10px;
+}
+
+.profile {
+    float: right;
+}

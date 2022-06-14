@@ -1,0 +1,14 @@
+.body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.foto img {
+    object-fit: contain;
+}
+
+app-login-form {
+    padding: 10%;
+    width: 100%;
+}

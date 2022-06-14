@@ -1,0 +1,21 @@
+<h2>Iniciar sesión</h2>
+<br>
+<form [formGroup]="loginForm" fxLayout="column">
+    <p>Email</p>
+        <input matInput placeholder="Email" name="email" formControlName="email" required>
+    <div *ngIf="loginForm.controls['email'].dirty || loginForm.controls['email']?.touched" class="alert alert-danger">
+        <div class="error" *ngIf="loginForm.get('email')?.hasError('required')">
+            Es obligatorio introducir el email
+        </div>
+    </div>
+    <br>
+    <p>Contraseña</p>
+        <input matInput placeholder="Contraseña" name="password" formControlName="password" type="password" required>
+    <div *ngIf="loginForm.controls['password'].dirty || loginForm.controls['email']?.touched"
+        class="alert alert-danger">
+        <div class="error" *ngIf="loginForm.get('password')?.hasError('required')">
+            Es obligatorio introducir una contraseña.
+        </div>
+    </div>
+    <div class="center"><button mat-raised-button (click)="doLogin()">Iniciar sesión</button></div>
+</form>
