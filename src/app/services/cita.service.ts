@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { GetCitaDetailsDTO } from '../models/cita/get_cita_details_dto';
 import { GetCitaDTO } from '../models/cita/get_cita_dto';
-import { ListCitasResponse } from '../models/cita/list_cita';
+import { CitaResponse } from '../models/cita/list_cita';
 
 const DEFAULT_HEADERS = {
   headers: new HttpHeaders({
@@ -21,9 +21,9 @@ export class CitaService {
 
   constructor(private http: HttpClient) { }
 
-  getCitas(): Observable<ListCitasResponse> {
+  getCitas(): Observable<CitaResponse[]> {
     let requestUrl = `${this.citaBaseUrl}/todas`;
-    return this.http.get<ListCitasResponse>(requestUrl, DEFAULT_HEADERS);
+    return this.http.get<CitaResponse[]>(requestUrl, DEFAULT_HEADERS);
   }
 
   getCitaById(id: String): Observable<GetCitaDetailsDTO> {
@@ -32,7 +32,7 @@ export class CitaService {
   }
 
   deleteCita(id: String) {
-    let requestUrl = `${this.citaBaseUrl}/${id}`;
+    let requestUrl = `${this.citaBaseUrl}/borrar/${id}`;
     return this.http.delete(requestUrl, DEFAULT_HEADERS);
   }
 }

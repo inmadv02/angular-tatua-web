@@ -1,4 +1,5 @@
 export interface GetCitaDTO {
+    id:string;
     fecha: string;
     foto: string;
     duracion: string;

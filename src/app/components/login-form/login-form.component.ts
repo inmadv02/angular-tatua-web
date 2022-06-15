@@ -31,6 +31,7 @@ export class LoginFormComponent implements OnInit {
     this.service.login(this.loginDTO).subscribe(result => {
       if (result.rol == 'ADMIN') {
         localStorage.setItem('token', result.token);
+        localStorage.setItem('id_usuario', result.id);
         this.router.navigate(['/home']);
       }
       else {

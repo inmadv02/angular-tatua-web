@@ -1,11 +1,13 @@
 
 <ng-container *ngIf="user">
+    <h2>Detalles del usuario</h2>
     <h1 mat-dialog-title>{{user.nombre}}</h1>
-    <div><img src="{{user.photo}}"></div>
+    <div class="foto"><img [src]="user.foto"></div>
     <div mat-dialog-content>
-        <p>{{user.email}}</p>
-        <p>{{user.rol}}</p>
-        <p>Próxima cita</p>
-        <p>{{user.citas[user.citas.length-1]}}</p>
+        <p><b>Email:</b> {{user?.email}}</p>
+        <p><b>Rol:</b> {{user?.rol}}</p>
+        <p><b>Número de publicaciones:</b> {{user.publicaciones.length}}</p>
+        <p><b>Número de citas:</b> {{user.citas.length}}</p>
+        <p><b>Número de favoritos:</b> {{user.favoritos.length}}</p>
     </div>
 </ng-container>

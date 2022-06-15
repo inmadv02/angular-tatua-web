@@ -1,6 +1,7 @@
 export interface GetUsuarioAdminDTO {
-    nombre:     string;
+    id: string;
+    nombre: string;
     fotoPerfil: string;
-    email:      string;
-  
+    email: string;
+
 }

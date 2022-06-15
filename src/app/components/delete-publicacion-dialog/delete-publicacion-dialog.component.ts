@@ -23,7 +23,9 @@ export class DeletePublicacionDialogComponent implements OnInit {
 
   deletePublicacionById(){
     this.service.deletePublicacion(this.data.publicacion_id).subscribe(result => {
-      this.ngOnInit();
+      console.log(result)
+      this.onNoClick();
+      window.location.reload();
     });
   }
 

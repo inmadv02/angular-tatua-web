@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { GetUsuarioDTO } from '../models/auth/get_usuario_dto';
 import { GetUsuarioEditDTO } from '../models/user/get_usuario_edit_dto';
-import { ListUsuariosResponse } from '../models/user/list_usuarios';
+import { UsuarioResponse } from '../models/user/list_usuarios';
 
 const DEFAULT_HEADERS = {
   headers: new HttpHeaders({
@@ -21,9 +21,9 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getListUsuarios(): Observable<ListUsuariosResponse> {
+  getListUsuarios(): Observable<UsuarioResponse[]> {
     let requestUrl = `${this.userBaseUrl}/lista-usuarios`;
-    return this.http.get<ListUsuariosResponse>(requestUrl, DEFAULT_HEADERS);
+    return this.http.get<UsuarioResponse[]>(requestUrl, DEFAULT_HEADERS);
   }
 
   getUsuarioById(id: String): Observable<GetUsuarioDTO>{
@@ -39,5 +39,10 @@ export class UserService {
   editPerfil(userDTO: GetUsuarioDTO): Observable<GetUsuarioEditDTO>{
     let requestUrl = `${this.userBaseUrl}/perfil/editar`;
     return this.http.put<GetUsuarioEditDTO>(requestUrl, userDTO, DEFAULT_HEADERS);
+  }
+
+  makeAdmin(id:string): Observable<GetUsuarioDTO> {
+    let requestUrl = `${this.userBaseUrl}/hacer-admin/${id}`;
+    return this.http.post<GetUsuarioDTO>(requestUrl, null, DEFAULT_HEADERS);
   }
 }

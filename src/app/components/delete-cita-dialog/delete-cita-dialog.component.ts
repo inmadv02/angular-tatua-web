@@ -22,7 +22,8 @@ export class DeleteCitaDialogComponent implements OnInit {
 
   deleteCita(){
     this.service.deleteCita(this.data.cita_id).subscribe(result => {
-      this.ngOnInit();
+      this.onNoClick();
+      window.location.reload();
     });
   }
 

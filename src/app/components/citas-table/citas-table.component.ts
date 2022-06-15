@@ -15,7 +15,7 @@ import { DeleteCitaDialogComponent } from '../delete-cita-dialog/delete-cita-dia
 export class CitasTableComponent implements OnInit {
 
   citas: GetCitaDTO[] = [];
-  displayedColumns: string[] = ['foto', 'nombre', 'email', 'fecha', 'detalles'];
+  displayedColumns: string[] = ['detalles', 'foto', 'nombre', 'email', 'fecha', 'borrar'];
   dataSource = new MatTableDataSource(this.citas);
 
   constructor(private service: CitaService, private matDialog : MatDialog) { }
@@ -26,24 +26,25 @@ export class CitasTableComponent implements OnInit {
 
   getCitas(){
     this.service.getCitas().subscribe(result => {
-      this.citas = result.content;
+      this.citas = result;
       this.dataSource = new MatTableDataSource(this.citas);
-    })
-  }
-
-  openCitaDetailsDialog(cita: GetCitaDetailsDTO) {
-    this.matDialog.open(CitaItemDialogComponent, {
-      height: '400px',
-      width: '300px',
-      data: cita
     });
   }
 
-  openDeleteCitaDialog(){
-    this.matDialog.open(DeleteCitaDialogComponent, {
+  openCitaDetailsDialog(id: string) {
+    this.matDialog.open(CitaItemDialogComponent, {
       height: '400px',
+      width: '400px',
+      data: {cita_id : id}
+    });
+  }
+
+  openDeleteCitaDialog(id:string){
+    this.matDialog.open(DeleteCitaDialogComponent, {
+      height: '250px',
       width: '300px',
-    })
+      data: {cita_id : id}
+    });
   }
 
 }

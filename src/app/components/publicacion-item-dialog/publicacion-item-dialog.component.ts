@@ -22,6 +22,7 @@ export class PublicacionItemDialogComponent implements OnInit {
   ngOnInit(): void {
     this.service.getPublicacionById(this.data.publicacion_id).subscribe(result => {
       this.publicacion = result;
+      console.log(this.publicacion)
     });
   }
 

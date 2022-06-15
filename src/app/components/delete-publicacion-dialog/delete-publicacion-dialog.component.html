@@ -1,8 +1,8 @@
-<h1 mat-dialog-title>¿Estás seguro de querer borrar esta cita?</h1>
+<h1 mat-dialog-title>¿Estás seguro de querer borrar esta publicación?</h1>
 <div mat-dialog-content>
-  <p>Una vez borrada la cita, no se podrá recuperar</p>
+  <p>Una vez borrada la publicación, no se podrá recuperar</p>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button (click)="deletePublicacionById()" color="danger" cdkFocusInitial>Borrar</button>
+  <button mat-button (click)="deletePublicacionById()" class="borrar" cdkFocusInitial>Borrar</button>
 </div>

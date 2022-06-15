@@ -1,9 +1,25 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+import { registerLocaleData } from '@angular/common';
+
+// importar locales
+import localePy from '@angular/common/locales/es-PY';
+import localePt from '@angular/common/locales/pt';
+import localeEn from '@angular/common/locales/en';
+import localeEsAr from '@angular/common/locales/es-AR';
+
+// registrar los locales con el nombre que quieras utilizar a la hora de proveer
+registerLocaleData(localePy, 'es');
+registerLocaleData(localePt, 'pt');
+registerLocaleData(localeEn, 'en')
+registerLocaleData(localeEsAr, 'es-Ar');
+
 import { AppRoutingModule } from './modules/app-routing.module';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { AppComponent } from './app.component';
+
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,7 +27,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MaterialImportsModule } from './modules/material-imports.module';
 import { UsersTableComponent } from './components/users-table/users-table.component';
 import { UserItemComponent } from './components/user-item/user-item.component';
@@ -60,9 +76,10 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MaterialImportsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'es-Ar' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

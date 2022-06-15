@@ -2,7 +2,7 @@ export interface GetPublicacionDetailsDTO {
     id: string;
     photo: string;
     likes: number;
-    descripcion: string;
+    description: string;
     profilePhoto: string;
     username: string;
 }

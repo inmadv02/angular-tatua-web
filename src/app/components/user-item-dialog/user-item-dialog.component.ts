@@ -21,6 +21,7 @@ export class UserItemDialogComponent implements OnInit {
   ngOnInit(): void {
     this.service.getUsuarioById(this.data.user_id).subscribe(result => {
       this.user = result;
+  
     });
   }
 

@@ -1,1 +1,12 @@
-<p>cita-item-dialog works!</p>
+<ng-container *ngIf="cita">
+    <h2>Detalles de la cita</h2>
+    <div class="foto"><img [src]="cita.foto" width="100%"></div>
+    <div mat-dialog-content>
+        <p><b>Día:</b> {{cita.fecha | date:'medium'}}</p>
+        <p><b>Tamaño:</b> {{cita.tamanio}} </p> <p><b>Oferta:</b> {{cita.oferta}}</p>
+        <p><b>Precio:</b> {{cita.precio}}€</p> <p><b>Color:</b> <span *ngIf="cita.color == true"> Sí</span><span *ngIf="cita.color 
+            != true">No</span></p>
+        <p><b>Email usuario:</b> {{cita.email}}</p>
+        <p><b>Observación:</b> {{cita.observacion}}</p>
+    </div>
+</ng-container>

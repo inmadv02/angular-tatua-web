@@ -1,4 +1,5 @@
 export interface GetCitaDetailsDTO {
+    id:string;
     fecha: string;
     foto: string;
     precio: number;

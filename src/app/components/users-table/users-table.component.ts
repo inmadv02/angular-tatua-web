@@ -15,9 +15,8 @@ import { UserItemDialogComponent } from '../user-item-dialog/user-item-dialog.co
 export class UsersTableComponent implements OnInit {
 
   users!: GetUsuarioAdminDTO[];
-  displayedColumns: string[] = ['foto', 'nombre', 'email', 'detalles'];
+  displayedColumns: string[] = ['detalles', 'foto', 'nombre', 'email', 'admin'];
   dataSource = new MatTableDataSource(this.users);
-  paginator!: MatPaginator;
 
   constructor(private service: UserService, private matDialog : MatDialog) { }
 
@@ -25,22 +24,28 @@ export class UsersTableComponent implements OnInit {
     this.getUsers();
   }
 
-  getUsers(){
-    this.service.getListUsuarios().subscribe(result => {
-      this.users = result.content;
-      this.dataSource = new MatTableDataSource(this.users);
-      setTimeout(() => this.dataSource.paginator = this.paginator);
-    });
-  }
-
-  openUserDetailsDialog(user: GetUsuarioAdminDTO) {
-    this.matDialog.open(UserItemDialogComponent, {
-      height: '400px',
-      width: '300px',
-      data: user
-    });
-  }
-
   
 
+  getUsers(){
+    this.service.getListUsuarios().subscribe(result => {
+      this.users = result;
+      this.dataSource = new MatTableDataSource(this.users);
+      
+    });
+  }
+
+  openUserDetailsDialog(id:string) {
+    this.matDialog.open(UserItemDialogComponent, {
+      height: '400px',
+      width: '400px',
+      data: {user_id : id}
+    });
+  }
+
+  makeAdmin(id:string) {
+    this.service.makeAdmin(id).subscribe(result => {
+      this.ngOnInit();
+    })
+  }
+  
 }

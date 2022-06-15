@@ -1,1 +1,9 @@
-<p>publicacion-item-dialog works!</p>
+<ng-container *ngIf="publicacion">
+    <h2>Detalles de la publicación</h2>
+    <div class="foto"><img [src]="publicacion.photo" width="100%"></div>
+    <div mat-dialog-content>
+        <p><b>Nombre usuario:</b> {{publicacion.username}}</p>
+        <p><b>Descripción:</b>{{publicacion.description}}</p>
+        <p><b>Número de likes:</b> {{publicacion.likes}}</p>
+    </div>
+</ng-container>

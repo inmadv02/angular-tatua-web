@@ -1,14 +1,14 @@
 <p>
     <mat-toolbar>
-        <span>Home</span>
-        <span>Citas</span>
-        <span>Clientes</span>
-        <span>Publicaciones</span>
+        <span routerLink="/home">Home</span>
+        <span routerLink="/citas">Citas</span>
+        <span routerLink="/home">Clientes</span>
+        <span routerLink="/publicaciones">Publicaciones</span>
         <div class="title"><p>TATUA STUDIO</p></div>
         <span>Facebook</span>
         <span>Twitter</span>
         <span>Instagram</span>
         <span>Youtube</span>
-        <div class="profile"><mat-icon>person</mat-icon><mat-icon>keyboard_arrow_down</mat-icon></div>
+        <div class="profile"><mat-icon (click)="logOut()">exit_to_app</mat-icon></div>
     </mat-toolbar>
 </p>

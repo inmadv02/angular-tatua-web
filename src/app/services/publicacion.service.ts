@@ -2,9 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ListCitasResponse } from '../models/cita/list_cita';
 import { GetPublicacionDetailsDTO } from '../models/publicaciones/get_publicacion_details_dto';
-import { ListPublicacionesResponse } from '../models/publicaciones/list_publicaciones';
+import { PublicacionResponse } from '../models/publicaciones/list_publicaciones';
 
 const DEFAULT_HEADERS = {
   headers: new HttpHeaders({
@@ -21,9 +20,9 @@ export class PublicacionService {
 
   constructor(private http: HttpClient) {}
 
-  getListPublicaciones(): Observable<ListPublicacionesResponse> {
+  getListPublicaciones(): Observable<PublicacionResponse[]> {
     let requestUrl = `${this.publicacionBaseUrl}/todas`;
-    return this.http.get<ListPublicacionesResponse>(requestUrl, DEFAULT_HEADERS);
+    return this.http.get<PublicacionResponse[]>(requestUrl, DEFAULT_HEADERS);
   }
 
   getPublicacionById(id: String): Observable<GetPublicacionDetailsDTO> {

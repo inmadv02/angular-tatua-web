@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+p, h2{
+    font-family: 'Lato', sans-serif;
+}
+
+.foto {
+    text-align: center;
+    margin-bottom: 25px;
+}

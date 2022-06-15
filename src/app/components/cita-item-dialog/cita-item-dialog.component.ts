@@ -21,6 +21,7 @@ export class CitaItemDialogComponent implements OnInit {
   ngOnInit(): void {
     this.service.getCitaById(this.data.cita_id).subscribe(result => {
       this.cita = result;
+      console.log(this.cita.observacion)
     });
   }
 
